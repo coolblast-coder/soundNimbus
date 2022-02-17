@@ -5,7 +5,7 @@ const path = require('path')
 const musicData = require('./musicData')
 
 
-const HTTP_PORT = process.env.port || 8080
+const HTTP_PORT = process.env.HTTP_PORT || 8080
 const onHttptart = () => console.log('HTTP server is listening on port ${HTTP_PORT} 🚀🚀🚀')
 
 app.use(express.static('public'))
@@ -39,11 +39,8 @@ app.get('/lyrics/:id', (req, res) => {
     musicData.getAlbums().then((data) => {
         // res.json(data)
         // res.send(req.params.id)
-
         // resolved Promice Data [idFromRequestParams].field
         res.json(data[req.params.id - 1].lyrics)
-
-
     }).catch((error) => {
         console.log(error)
         res.status(404).send("ERROR!")
@@ -55,11 +52,8 @@ app.get('/info/:id', (req, res) => {
     musicData.getAlbums().then((data) => {
         // res.json(data)
         // res.send(req.params.id)
-
         // resolved Promice Data [idFromRequestParams].field
         res.json(data[req.params.id - 1])
-
-
     }).catch((error) => {
         console.log(error)
         res.status(404).send("ERROR!")
