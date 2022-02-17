@@ -6,7 +6,7 @@ const musicData = require('./musicData')
 
 
 const HTTP_PORT = process.env.HTTP_PORT || 8080
-const onHttptart = () => console.log('HTTP server is listening on port ${HTTP_PORT} 🚀🚀🚀')
+const onHttptart = () => console.log('HTTP server is listening on port '+HTTP_PORT+' 🚀🚀🚀')
 
 app.use(express.static('public'))
 
